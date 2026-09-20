@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.WodegedanDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.WodegedanEntity" id="wodegedanMap">
+        <result property="songname" column="songname"/>
+        <result property="yinleleixing" column="yinleleixing"/>
+        <result property="singer" column="singer"/>
+        <result property="tianjiariqi" column="tianjiariqi"/>
+        <result property="yonghuzhanghao" column="yonghuzhanghao"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.WodegedanView" >
+
+		SELECT  wodegedan.* FROM wodegedan  wodegedan 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.WodegedanView" >
+		SELECT * FROM wodegedan  wodegedan <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
